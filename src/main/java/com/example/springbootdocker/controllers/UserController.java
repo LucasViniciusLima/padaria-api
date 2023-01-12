@@ -43,7 +43,7 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK).body(this.userService.delete(id));
     }
 
-    @RequestMapping(value="/{id}", method= RequestMethod.PUT)
+    @PutMapping("/{id}")
     public ResponseEntity<Object> updateUser(@PathVariable(value="id") Long id, @RequestBody User user){
         return ResponseEntity.status(HttpStatus.OK).body(this.userService.update(id, user));
     }
