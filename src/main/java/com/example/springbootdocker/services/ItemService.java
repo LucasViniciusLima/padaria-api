@@ -1,18 +1,23 @@
 package com.example.springbootdocker.services;
 
+import com.example.springbootdocker.dtos.ItemDto;
+import com.example.springbootdocker.enums.Category;
 import com.example.springbootdocker.interfaces.CrudServiceInterface;
 import com.example.springbootdocker.models.Item;
 import com.example.springbootdocker.models.User;
 import com.example.springbootdocker.repositories.ItemRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ItemService implements CrudServiceInterface<Item> {
+@Service
+public class ItemService implements CrudServiceInterface<Item, ItemDto> {
 
     private final ItemRepository itemRepository;
 
@@ -21,9 +26,11 @@ public class ItemService implements CrudServiceInterface<Item> {
     }
 
     @Override
-    public Item create(Item item) {
+    public Item create(ItemDto item) {
         var itemModel = new Item();
-        BeanUtils.copyProperties(item, itemModel);
+        itemModel.setName(item.getName());
+        itemModel.setCategory(Category.valueOf(item.getCategory()));
+        itemModel.setPrice(item.getPrice());
         return itemRepository.save(itemModel);
     }
 

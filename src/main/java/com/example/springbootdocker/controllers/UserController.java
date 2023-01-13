@@ -3,14 +3,12 @@ package com.example.springbootdocker.controllers;
 import com.example.springbootdocker.dtos.UserDto;
 import com.example.springbootdocker.models.User;
 import com.example.springbootdocker.services.UserService;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)

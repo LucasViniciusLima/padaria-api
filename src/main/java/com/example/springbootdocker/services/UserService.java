@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService implements CrudServiceInterface<User> {
+public class UserService implements CrudServiceInterface<User, UserDto> {
 
     private final UserRepository userRepository;
 
@@ -24,7 +24,7 @@ public class UserService implements CrudServiceInterface<User> {
     }
 
     @Override
-    public User create(User user) {
+    public User create(UserDto user) {
         var userModel = new User();
         BeanUtils.copyProperties(user, userModel);
         return userRepository.save(userModel);

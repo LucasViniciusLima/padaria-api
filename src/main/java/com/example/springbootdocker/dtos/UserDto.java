@@ -9,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 
 @Getter
-public class UserDto extends User {
+public class UserDto {
     @NotBlank
     private String name;
 
