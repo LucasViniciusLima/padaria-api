@@ -1,5 +1,6 @@
 package com.example.springbootdocker.dtos;
 
+import com.example.springbootdocker.models.User;
 import lombok.Getter;
 
 import javax.validation.constraints.Email;
@@ -8,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 
 @Getter
-public class UserDto {
+public class UserDto extends User {
     @NotBlank
     private String name;
 

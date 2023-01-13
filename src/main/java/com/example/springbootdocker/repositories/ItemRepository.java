@@ -1,9 +1,9 @@
 package com.example.springbootdocker.repositories;
 
-import com.example.springbootdocker.models.User;
+import com.example.springbootdocker.models.Item;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface ItemRepository extends CrudRepository<Item, Long> {
 }

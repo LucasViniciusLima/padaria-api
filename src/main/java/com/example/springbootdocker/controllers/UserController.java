@@ -22,20 +22,12 @@ public class UserController {
 
     @PostMapping(path = "/create")
     public ResponseEntity<Object> addNewUser(@RequestBody @Valid UserDto userDto) {
-        var userModel = new User();
-        BeanUtils.copyProperties(userDto, userModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.userService.create(userModel));
+        return ResponseEntity.status(HttpStatus.CREATED).body(this.userService.create(userDto));
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getUser(@PathVariable(value = "id") Long id) {
-        Optional<User> userOptional = this.userService.getOne(id);
-
-        if (!userOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado");
-        }
-
-        return ResponseEntity.status(HttpStatus.OK).body(userOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(this.userService.getOne(id));
     }
 
     @DeleteMapping("/{id}")
