@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "itens")
@@ -17,6 +19,9 @@ public class Item {
     private Long id;
     private String name;
     private BigDecimal price;
+
+    @OneToMany(mappedBy = "item")
+    List<ItemPedido> itemPedido = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     private Category category;

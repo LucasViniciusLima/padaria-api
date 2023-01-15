@@ -34,12 +34,11 @@ POST http://localhost:8080/item/create
 Content-Type: application/json
 
 {
-  "name": "Pão de Queijo",
-  "price": 2.5,
+  "name": "Pão de Queijo 2",
+  "price": 2.75,
   "category": "PAO"
 }
 
 ###
-GET http://localhost:8080/item/7
+GET http://localhost:8080/item/2
 Accept: application/json
-

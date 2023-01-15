@@ -1,5 +1,6 @@
 package com.example.springbootdocker.dtos;
 
+import com.example.springbootdocker.enums.Category;
 import com.example.springbootdocker.models.Item;
 import lombok.Getter;
 
